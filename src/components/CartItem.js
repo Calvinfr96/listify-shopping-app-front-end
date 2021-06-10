@@ -2,9 +2,8 @@ import React from 'react'
 
 function CartItem() {
     return (
-        <div>
-
-        </div>
+        <li className="CartItem">
+        </li>
     )
 }
 

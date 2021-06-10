@@ -4,7 +4,7 @@ import ShoppingItem from './ShoppingItem'
 
 function ItemList() {
     return (
-        <div>
+        <div className="ItemList">
             <FilterButton />
             <ShoppingItem />
         </div>

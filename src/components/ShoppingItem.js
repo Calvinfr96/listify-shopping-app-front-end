@@ -3,9 +3,8 @@ import ShoppingContainer from './ShoppingContainer'
 
 function ShoppingItem() {
     return (
-        <div>
-
-        </div>
+        <li className="ShoppingItem">
+        </li>
     )
 }
 
