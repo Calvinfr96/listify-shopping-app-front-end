@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ShoppingItem() {
+function ShoppingItem({ name, price, category }) {
     return (
         <li className="ShoppingItem">
-            <span>Shopping Item Name</span>
-            <span>$Price</span>
-            <span>Category</span>
+            <span>{name}</span>
+            <span>${price}</span>
+            <span>{category}</span>
             <button>Add to Cart</button>
         </li>
     )
