@@ -51,6 +51,16 @@ export default function ShoppingContainer() {
             })
     }
 
+    function deleteItem(id) {
+        const URL = `${baseURL}/shoppingItems/${id}`
+        fetch(URL, {method: "DELETE"})
+            .then(resp => resp.json())
+            .then(() => {
+                const updatedItems = shoppingItems.filter(item => item.id !== id)
+                setShoppingItems(updatedItems)
+            })
+    }
+
     return (
         <div>
             <div className="ShoppingContainer">
@@ -58,7 +68,8 @@ export default function ShoppingContainer() {
                     shoppingItems={displayedItems}
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
-                    changeCartStatus={changeCartStatus} />
+                    changeCartStatus={changeCartStatus}
+                    deleteItem={deleteItem} />
                 <ShoppingCart cartItems={cartItems} cartTotal={total} />
             </div>
         </div>
