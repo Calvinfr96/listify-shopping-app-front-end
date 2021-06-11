@@ -6,7 +6,6 @@ function CartItem({name, price, category}) {
             <span>{name}</span>
             <span>${price}</span>
             <span>{category}</span>
-            <button>Remove from Cart</button>
         </li>
     )
 }

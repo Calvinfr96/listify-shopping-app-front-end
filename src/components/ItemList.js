@@ -4,7 +4,9 @@ import ShoppingItem from './ShoppingItem'
 
 function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, changeCartStatus }) {
     const itemComponents = shoppingItems.map(item => {
-        return <ShoppingItem key={`Item ${item.id}`} item={item} changeCartStatus={changeCartStatus} />
+        return <ShoppingItem 
+                    key={`Item ${item.id}`} 
+                    item={item} changeCartStatus={changeCartStatus} />
     })
     return (
         <div className="ItemList">
