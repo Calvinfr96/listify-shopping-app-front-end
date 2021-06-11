@@ -1,12 +1,15 @@
 import React from 'react'
 
-function ShoppingItem({ name, price, category }) {
+function ShoppingItem({ item, changeCartStatus }) {
+    function handleChangeCartStatus() {
+        changeCartStatus(item, item.id)
+    }
     return (
         <li className="ShoppingItem">
-            <span>{name}</span>
-            <span>${price}</span>
-            <span>{category}</span>
-            <button>Add to Cart</button>
+            <span>{item.name}</span>
+            <span>${item.price}</span>
+            <span>{item.category}</span>
+            <button onClick={handleChangeCartStatus} >{item.isInCart ? "Remove from Cart" : "Add to Cart"}</button>
         </li>
     )
 }

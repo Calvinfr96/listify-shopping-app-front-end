@@ -2,9 +2,9 @@ import React from 'react'
 import FilterButton from './FilterButton'
 import ShoppingItem from './ShoppingItem'
 
-function ItemList({ shoppingItems, selectedCategory, setSelectedCategory }) {
+function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, changeCartStatus }) {
     const itemComponents = shoppingItems.map(item => {
-        return <ShoppingItem key={`Item ${item.id}`} name={item.name} category={item.category} price={item.price} />
+        return <ShoppingItem key={`Item ${item.id}`} item={item} changeCartStatus={changeCartStatus} />
     })
     return (
         <div className="ItemList">

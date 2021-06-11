@@ -7,6 +7,7 @@ function FilterButton({ selectedCategory, setSelectedCategory }) {
 
     return (
         <div className="FilterButton">
+            <span>Select category: </span>
             <select name="Filter" value={selectedCategory} onChange={handleChange} >
                 <option name="All">All</option>
                 <option name="Bakery">Bakery</option>

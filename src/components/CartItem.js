@@ -1,11 +1,11 @@
 import React from 'react'
 
-function CartItem() {
+function CartItem({name, price, category}) {
     return (
         <li className="CartItem">
-            <span>Shopping Item Name</span>
-            <span>$Price</span>
-            <span>Category</span>
+            <span>{name}</span>
+            <span>${price}</span>
+            <span>{category}</span>
             <button>Remove from Cart</button>
         </li>
     )
