@@ -6,7 +6,9 @@ function ItemList() {
     return (
         <div className="ItemList">
             <FilterButton />
-            <ShoppingItem />
+            <ul>
+                <ShoppingItem />
+            </ul>
         </div>
     )
 }
