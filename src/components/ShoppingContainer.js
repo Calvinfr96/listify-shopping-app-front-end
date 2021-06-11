@@ -4,9 +4,11 @@ import ShoppingCart from './ShoppingCart'
 
 export default function ShoppingContainer() {
     return (
-        <div className="ShoppingContainer">
-            <ItemList />
-            <ShoppingCart />
+        <div>
+            <div className="ShoppingContainer">
+                <ItemList />
+                <ShoppingCart />
+            </div>
         </div>
     )
 }
