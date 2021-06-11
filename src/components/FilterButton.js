@@ -1,11 +1,16 @@
 import React from 'react'
 
-function FilterButton() {
+function FilterButton({ selectedCategory, setSelectedCategory }) {
+    function handleChange(event) {
+        setSelectedCategory(event.target.value)
+    }
+
     return (
         <div className="FilterButton">
-            <select name="Filter">
+            <select name="Filter" value={selectedCategory} onChange={handleChange} >
+                <option name="All">All</option>
                 <option name="Bakery">Bakery</option>
-                <option name="Dairy">Dairy</option>
+                <option name="Dairy & Eggs">Dairy & Eggs</option>
                 <option name="Deli">Deli</option>
                 <option name="Frozen">Frozen</option>
                 <option name="Grocery">Grocery</option>
