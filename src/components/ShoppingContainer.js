@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
 import ShoppingCart from './ShoppingCart'
 
-export default function ShoppingContainer() {
+function ShoppingContainer() {
     const baseURL = "http://localhost:3000";
     const [shoppingItems, setShoppingItems] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("All")
@@ -75,3 +75,5 @@ export default function ShoppingContainer() {
         </div>
     )
 }
+
+export default ShoppingContainer

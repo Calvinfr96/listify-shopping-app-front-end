@@ -8,6 +8,10 @@
   color: orange;
 }
 
+.ItemForm {
+  text-align: center
+}
+
 .ItemList ul, .ShoppingCart ul {
   list-style: none;
 }
