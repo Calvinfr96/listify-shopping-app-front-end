@@ -4,7 +4,7 @@ import ShoppingCart from './ShoppingCart'
 import NewItemForm from "./NewItemForm"
 
 function ShoppingContainer() {
-    const baseURL = "http://localhost:3000";
+    const baseURL = "https://listify-shopping-app-back-end.herokuapp.com";
     const [shoppingItems, setShoppingItems] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("Default")
     const [itemPrices, setItemPrices] = useState([]);
