@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
 import ShoppingCart from './ShoppingCart'
+import NewItemForm from "./NewItemForm"
 
 function ShoppingContainer() {
     const baseURL = "http://localhost:3000";
@@ -61,16 +62,42 @@ function ShoppingContainer() {
             })
     }
 
+    function captialize(string) {
+        return string[0].toUpperCase() + string.slice(1)
+    }
+
+    function addItem(formData) {
+        const URL = `${baseURL}/shoppingItems`
+        const configObj = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                name: captialize(formData.name),
+                price: formData.price,
+                category: captialize(formData.category),
+                isInCart: false
+            })
+        }
+        fetch(URL, configObj)
+            .then(resp => resp.json())
+            .then(newItem => {
+                setShoppingItems([...shoppingItems, newItem])
+            })
+    }
+
     return (
         <div>
-            <div className="ShoppingContainer">
-                <ItemList
-                    shoppingItems={displayedItems}
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    changeCartStatus={changeCartStatus}
-                    deleteItem={deleteItem} />
-                <ShoppingCart cartItems={cartItems} cartTotal={total} />
+            <div>
+                <NewItemForm addItem={addItem} />
+                <div className="ShoppingContainer">
+                    <ItemList
+                        shoppingItems={displayedItems}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                        changeCartStatus={changeCartStatus}
+                        deleteItem={deleteItem} />
+                    <ShoppingCart cartItems={cartItems} cartTotal={total} />
+                </div>
             </div>
         </div>
     )

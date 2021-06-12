@@ -4,7 +4,7 @@ function CartItem({name, price, category}) {
     return (
         <li className="CartItem">
             <span>{name}</span>
-            <span>${price}</span>
+            <span>${price.toFixed(2)}</span>
             <span>{category}</span>
         </li>
     )

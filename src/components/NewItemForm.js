@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function NewItemForm() {
+function NewItemForm({addItem}) {
     const [formData, setFormData] = useState({
         name: "",
         category: "",
@@ -19,13 +19,25 @@ function NewItemForm() {
             [name]: value
         })
     }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        addItem(formData)
+        setFormData({
+            name: "",
+            category: "",
+            price: "",
+            isInCart: false
+        })
+    }
+
     return (
         <div className="ItemForm">
             <form>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Item name" />
                 <input type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Item Category" />
                 <input type="number" name="price" value={formData.price} onChange={handleChange} step="0.01" placeholder="Item Price" />
-                <button type="submit" >Add Item</button>
+                <button type="submit" onClick={handleSubmit} >Add Item</button>
             </form>    
         </div>
     )
