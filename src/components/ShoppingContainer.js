@@ -74,7 +74,7 @@ function ShoppingContainer() {
             body: JSON.stringify({
                 name: captialize(formData.name),
                 price: formData.price,
-                category: captialize(formData.category),
+                category: formData.category,
                 isInCart: false
             })
         }
