@@ -45,7 +45,7 @@
 
 .CartTotal {
   position: absolute;
-  bottom: 0;
+  bottom: auto;
   right: 0;
 }
 
@@ -63,6 +63,27 @@
   grid-template-columns: 3fr 1fr 2fr;
   margin-bottom: 5px;
 }
-/* .ShoppingItem span, .CartItem span {
-  margin: 5px;
-} */
+
+.Delete {
+  background-color: red;
+  max-width: 60%;
+  border-radius: 9px;
+}
+
+.Add {
+  background-color: green;
+  color: white;
+  max-width: 60%;
+  border-radius: 9px;
+}
+
+.Remove {
+  background-color: red;
+  color: white;
+  max-width: 80%;
+  border-radius: 9px;
+}
+
+.FilterButton {
+  text-align: center;
+}

@@ -33,6 +33,7 @@ function NewItemForm({addItem}) {
 
     return (
         <div className="ItemForm">
+            <h3>Add to Available Items Here:</h3>
             <form>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Item name" />
                 <select name="category" value={formData.category} onChange={handleChange} >
