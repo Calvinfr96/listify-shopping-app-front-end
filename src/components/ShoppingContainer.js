@@ -6,7 +6,7 @@ import NewItemForm from "./NewItemForm"
 function ShoppingContainer() {
     const baseURL = "http://localhost:3000";
     const [shoppingItems, setShoppingItems] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("All")
+    const [selectedCategory, setSelectedCategory] = useState("Default")
     const [itemPrices, setItemPrices] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function ShoppingContainer() {
             })
     }, [])
 
-    const displayedItems = shoppingItems.filter(item => selectedCategory === "All" || selectedCategory === item.category);
+    const displayedItems = shoppingItems.filter(item => selectedCategory === "All" || selectedCategory === "Default" || selectedCategory === item.category);
     const cartItems = shoppingItems.filter(item => item.isInCart);
     const cartPrices = cartItems.map(item => item.price)
     const total = cartPrices.reduce((prevTotal, itemPrice) => prevTotal + itemPrice,0)
@@ -87,8 +87,9 @@ function ShoppingContainer() {
 
     return (
         <div>
-            <div>
+            <div className="ItemForm">
                 <NewItemForm addItem={addItem} />
+            </div>
                 <div className="ShoppingContainer">
                     <ItemList
                         shoppingItems={displayedItems}
@@ -98,7 +99,6 @@ function ShoppingContainer() {
                         deleteItem={deleteItem} />
                     <ShoppingCart cartItems={cartItems} cartTotal={total} />
                 </div>
-            </div>
         </div>
     )
 }

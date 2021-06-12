@@ -12,6 +12,7 @@ function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, change
     })
     return (
         <div className="ItemList">
+            <h3>Available Items</h3>
             <FilterButton selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             <ul>
                 {itemComponents}

@@ -7,17 +7,17 @@ function FilterButton({ selectedCategory, setSelectedCategory }) {
 
     return (
         <div className="FilterButton">
-            <span><strong>Select category: </strong></span>
             <select name="Filter" value={selectedCategory} onChange={handleChange} >
-                <option name="All">All</option>
-                <option name="Bakery">Bakery</option>
-                <option name="Dairy & Eggs">Dairy & Eggs</option>
-                <option name="Deli">Deli</option>
-                <option name="Frozen">Frozen</option>
-                <option name="Grocery">Grocery</option>
-                <option name="Meat">Meat</option>
-                <option name="Produce">Produce</option>
-                <option name="Sea Food">Sea Food</option>
+                <option disabled value="Default">Select Filter</option>
+                <option value="All">All</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Dairy & Eggs">Dairy & Eggs</option>
+                <option value="Deli">Deli</option>
+                <option value="Frozen">Frozen</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Meat">Meat</option>
+                <option value="Produce">Produce</option>
+                <option value="Sea Food">Sea Food</option>
             </select>
         </div>
     )

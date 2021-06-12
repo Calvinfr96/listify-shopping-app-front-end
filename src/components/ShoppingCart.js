@@ -7,6 +7,7 @@ function ShoppingCart({cartItems, cartTotal}) {
     })
     return (
         <div className="ShoppingCart">
+            <h3>Shopping Cart</h3>
             <ul>
                 {cartItemComponents}
             </ul>

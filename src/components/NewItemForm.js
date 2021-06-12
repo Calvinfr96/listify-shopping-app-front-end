@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 function NewItemForm({addItem}) {
     const [formData, setFormData] = useState({
         name: "",
-        category: "Select Category",
+        category: "default",
         price: "",
         isInCart: false
     })
@@ -25,7 +25,7 @@ function NewItemForm({addItem}) {
         addItem(formData)
         setFormData({
             name: "",
-            category: "Select Category",
+            category: "default",
             price: "",
             isInCart: false
         })
@@ -36,15 +36,15 @@ function NewItemForm({addItem}) {
             <form>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Item name" />
                 <select name="category" value={formData.category} onChange={handleChange} >
-                    <option name="default" disabled>Select Category</option>
-                    <option name="Bakery">Bakery</option>
-                    <option name="Dairy & Eggs">Dairy & Eggs</option>
-                    <option name="Deli">Deli</option>
-                    <option name="Frozen">Frozen</option>
-                    <option name="Grocery">Grocery</option>
-                    <option name="Meat">Meat</option>
-                    <option name="Produce">Produce</option>
-                    <option name="Sea Food">Sea Food</option>
+                    <option value="default" disabled>Select Category</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Dairy & Eggs">Dairy & Eggs</option>
+                    <option value="Deli">Deli</option>
+                    <option value="Frozen">Frozen</option>
+                    <option value="Grocery">Grocery</option>
+                    <option value="Meat">Meat</option>
+                    <option value="Produce">Produce</option>
+                    <option value="Sea Food">Sea Food</option>
                 </select>
                 <input type="number" name="price" value={formData.price} onChange={handleChange} step="0.01" placeholder="Item Price" />
                 <button type="submit" onClick={handleSubmit} >Add Item</button>
