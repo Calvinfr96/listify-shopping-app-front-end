@@ -17,8 +17,24 @@ function ShoppingContainer() {
             })
     }, [])
 
-    const displayedItems = shoppingItems.filter(item => selectedCategory === "All" || selectedCategory === "Default" || selectedCategory === item.category);
+    function alphabetizeByCategory(a, b) {
+        if (a.category < b.category){
+          return -1;
+        }
+        if (a.category > b.category){
+          return 1;
+        }
+        return 0;
+      }
+
+    const availableItems = shoppingItems.filter(item => selectedCategory === "All" || selectedCategory === "Default" || selectedCategory === item.category);
+    if (availableItems.length > 1) {
+        availableItems.sort(alphabetizeByCategory);
+    }
     const cartItems = shoppingItems.filter(item => item.isInCart);
+    if (cartItems.length > 1) {
+        cartItems.sort(alphabetizeByCategory);
+    }
     const cartPrices = cartItems.map(item => item.price)
     const total = cartPrices.reduce((prevTotal, itemPrice) => prevTotal + itemPrice,0)
 
@@ -92,7 +108,7 @@ function ShoppingContainer() {
             </div>
                 <div className="ShoppingContainer">
                     <ItemList
-                        shoppingItems={displayedItems}
+                        shoppingItems={availableItems}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
                         changeCartStatus={changeCartStatus}
