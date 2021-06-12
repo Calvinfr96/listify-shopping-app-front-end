@@ -35,7 +35,6 @@ function NewItemForm({addItem}) {
         <div className="ItemForm">
             <form>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Item name" />
-                <span><strong> Category: </strong></span>
                 <select name="category" value={formData.category} onChange={handleChange} >
                     <option name="default" disabled>Select Category</option>
                     <option name="Bakery">Bakery</option>
