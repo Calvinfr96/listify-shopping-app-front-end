@@ -16,7 +16,7 @@
   list-style: none;
 }
 
-.ItemList h3, .ShoppingCart h3 {
+.ItemList h3, .ShoppingCart h3, .ShoppingCart p {
   text-align: center;
 }
 
