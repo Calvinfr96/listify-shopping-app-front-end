@@ -10,6 +10,14 @@ function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, change
                     changeCartStatus={changeCartStatus}
                     deleteItem={deleteItem} />
     })
+    if (shoppingItems.length === 0) {
+        return (
+            <div className="ShoppingCart">
+                <h3>Available Items</h3>
+                <p>No items to display</p>
+            </div>
+        )  
+    }
     return (
         <div className="ItemList">
             <h3>Available Items</h3>
