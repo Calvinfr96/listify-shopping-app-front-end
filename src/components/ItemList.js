@@ -2,7 +2,7 @@ import React from 'react'
 import FilterButton from './FilterButton'
 import ShoppingItem from './ShoppingItem'
 
-function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, changeCartStatus, deleteItem }) {
+function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, changeCartStatus, deleteItem, isLoaded }) {
     const itemComponents = shoppingItems.map(item => {
         return <ShoppingItem 
                     key={`Item ${item.id}`} 
@@ -10,9 +10,17 @@ function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, change
                     changeCartStatus={changeCartStatus}
                     deleteItem={deleteItem} />
     })
+    if (!isLoaded) {
+        return (
+        <div className="ItemList">
+            <h3>Available Items</h3>
+            <p>Loading...</p>
+        </div>  
+        )
+    }
     if (shoppingItems.length === 0) {
         return (
-            <div className="ShoppingCart">
+            <div className="ItemList">
                 <h3>Available Items</h3>
                 <p>No items to display</p>
             </div>

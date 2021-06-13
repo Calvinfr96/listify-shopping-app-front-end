@@ -8,12 +8,14 @@ function ShoppingContainer() {
     const [shoppingItems, setShoppingItems] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("Default")
     const [itemPrices, setItemPrices] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         fetch(`${baseURL}/shoppingItems`)
             .then(resp => resp.json())
             .then(data => {
                 setShoppingItems(data)
+                setIsLoaded(isLoaded => !isLoaded)
             })
     }, [])
 
@@ -112,8 +114,9 @@ function ShoppingContainer() {
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
                         changeCartStatus={changeCartStatus}
-                        deleteItem={deleteItem} />
-                    <ShoppingCart cartItems={cartItems} cartTotal={total} />
+                        deleteItem={deleteItem}
+                        isLoaded={isLoaded} />
+                    <ShoppingCart cartItems={cartItems} cartTotal={total} isLoaded={isLoaded} />
                 </div>
         </div>
     )

@@ -1,10 +1,18 @@
 import React from 'react'
 import CartItem from './CartItem'
 
-function ShoppingCart({cartItems, cartTotal}) {
+function ShoppingCart({cartItems, cartTotal, isLoaded}) {
     const cartItemComponents = cartItems.map(item => {
         return <CartItem key={`Item ${item.id}`} name={item.name} category={item.category} price={item.price} />
     })
+    if (!isLoaded) {
+        return (
+            <div className="ShoppingCart">
+            <h3>Shopping Cart</h3>
+            <p>Loading...</p>
+        </div>  
+        )
+    }
     if (cartItems.length === 0) {
         return (
             <div className="ShoppingCart">

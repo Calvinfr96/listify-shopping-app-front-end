@@ -24,7 +24,7 @@
   background-color: lightgray;
 }
 
-.ItemList h3, .ShoppingCart h3, .ShoppingCart p {
+.ItemList h3, .ItemList p, .ShoppingCart h3, .ShoppingCart p {
   text-align: center;
 }
 
