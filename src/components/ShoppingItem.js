@@ -1,8 +1,8 @@
 import React from 'react'
 
-function ShoppingItem({ item, changeCartStatus, deleteItem }) {
+function ShoppingItem({ item, patchCartStatus, deleteItem }) {
     function handleChangeCartStatus() {
-        changeCartStatus(item, item.id)
+        patchCartStatus(item, item.id)
     }
 
     function handleDelete() {

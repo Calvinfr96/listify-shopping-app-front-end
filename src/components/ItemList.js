@@ -2,12 +2,12 @@ import React from 'react'
 import FilterButton from './FilterButton'
 import ShoppingItem from './ShoppingItem'
 
-function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, changeCartStatus, deleteItem, isLoaded }) {
+function ItemList({ shoppingItems, selectedCategory, setSelectedCategory, patchCartStatus, deleteItem, isLoaded }) {
     const itemComponents = shoppingItems.map(item => {
         return <ShoppingItem 
                     key={`Item ${item.id}`} 
                     item={item} 
-                    changeCartStatus={changeCartStatus}
+                    patchCartStatus={patchCartStatus}
                     deleteItem={deleteItem} />
     })
     if (!isLoaded) {

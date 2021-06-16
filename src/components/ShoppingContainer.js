@@ -40,7 +40,24 @@ function ShoppingContainer() {
     const cartPrices = cartItems.map(item => item.price)
     const total = cartPrices.reduce((prevTotal, itemPrice) => prevTotal + itemPrice,0)
 
-    function changeCartStatus(item, id) {
+    function changeCartStatus(changedItem, id) {
+         const newItems = shoppingItems.map(item => {
+            if (item.id === id) {
+                return changedItem
+            }
+            return item
+            })
+        setShoppingItems(newItems)
+        if (changedItem.isInCart) {
+            setItemPrices([...itemPrices, changedItem.price])
+        }
+        if (!changedItem.isInCart) {
+            const updatedItemPrices = itemPrices.filter(price => !(changedItem.price === price && changedItem.id === id))
+            setItemPrices(updatedItemPrices)
+        }
+    }
+
+    function patchCartStatus(item, id) {
         const URL = `${baseURL}/shoppingItems/${id}`
         const configObj = {
             method: "PATCH",
@@ -52,22 +69,7 @@ function ShoppingContainer() {
         }
         fetch(URL, configObj)
             .then(resp => resp.json())
-            .then(newItem => {
-                const newItems = shoppingItems.map(item => {
-                    if (item.id === id) {
-                        return newItem
-                    }
-                    return item
-                })
-                setShoppingItems(newItems)
-                if (newItem.isInCart) {
-                    setItemPrices([...itemPrices, newItem.price])
-                }
-                if (!newItem.isInCart) {
-                    const updatedItemPrices = itemPrices.filter(price => !(newItem.price === price && newItem.id === id))
-                    setItemPrices(updatedItemPrices)
-                }
-            })
+            .then(changedItem => changeCartStatus(changedItem, id))
     }
 
     function deleteItem(id) {
@@ -113,7 +115,7 @@ function ShoppingContainer() {
                         shoppingItems={availableItems}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
-                        changeCartStatus={changeCartStatus}
+                        patchCartStatus={patchCartStatus}
                         deleteItem={deleteItem}
                         isLoaded={isLoaded} />
                     <ShoppingCart cartItems={cartItems} cartTotal={total} isLoaded={isLoaded} />
