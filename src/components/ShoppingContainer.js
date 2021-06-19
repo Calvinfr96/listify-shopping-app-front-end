@@ -7,7 +7,6 @@ function ShoppingContainer() {
     const baseURL = "https://listify-shopping-app-back-end.herokuapp.com";
     const [shoppingItems, setShoppingItems] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("Default")
-    const [itemPrices, setItemPrices] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -48,13 +47,6 @@ function ShoppingContainer() {
             return item
             })
         setShoppingItems(newItems)
-        if (changedItem.isInCart) {
-            setItemPrices([...itemPrices, changedItem.price])
-        }
-        if (!changedItem.isInCart) {
-            const updatedItemPrices = itemPrices.filter(price => !(changedItem.price === price && changedItem.id === id))
-            setItemPrices(updatedItemPrices)
-        }
     }
 
     function patchCartStatus(item, id) {
