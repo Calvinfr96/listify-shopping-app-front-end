@@ -1,11 +1,11 @@
 import React from 'react'
 
-function CartItem({name, price, category}) {
+function CartItem({item}) {
     return (
         <li className="CartItem">
-            <span>{name}</span>
-            <span>${price.toFixed(2)}</span>
-            <span>{category}</span>
+            <span>{item.name}</span>
+            <span>${item.price.toFixed(2)}</span>
+            <span>{item.category}</span>
         </li>
     )
 }

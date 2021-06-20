@@ -3,7 +3,7 @@ import CartItem from './CartItem'
 
 function ShoppingCart({cartItems, cartTotal, isLoaded}) {
     const cartItemComponents = cartItems.map(item => {
-        return <CartItem key={`Item ${item.id}`} name={item.name} category={item.category} price={item.price} />
+        return <CartItem key={`Item ${item.id}`} item={item} />
     })
     if (!isLoaded) {
         return (
